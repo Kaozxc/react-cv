@@ -17,13 +17,21 @@ function Main(props) {
             })
         }
 
+        const clearInput = (val) => {
+            let nameInput = document.getElementsByName(val)[0].value;
+            console.log(nameInput)
+            document.getElementsByName(val)[0].value = ""
+        }
+
         return (
             <div>
                 <input 
                     placeholder="name" 
                     name="name"
+                    className='nameInput'
                     defaultValue={state.name} 
                     onChange={(event) => props.onNameChange(event.target.value)}
+                    onBlur={() => clearInput('name')}
                     type="text">
                 </input>
                 <input 
@@ -31,6 +39,7 @@ function Main(props) {
                     name="email" 
                     defaultValue={state.email} 
                     onChange={(event) => props.onEmailChange(event.target.value)} 
+                    onBlur={() => clearInput('email')}
                     type="email">
                 </input>
                 <input 
@@ -38,6 +47,7 @@ function Main(props) {
                     name="phone" 
                     defaultValue={state.phone} 
                     onChange={(event) => props.onPhoneChange(event.target.value)}  
+                    onBlur={(event) => clearInput('phone')}
                     type="text">
                 </input>
                 <button type="submit" onClick={onButtonClick}> Click me to edit</button>

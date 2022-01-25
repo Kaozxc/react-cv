@@ -20,6 +20,12 @@ function Practical(props) {
         })
     }
 
+    const clearInput = (val) => {
+        let nameInput = document.getElementsByName(val)[0].value;
+        console.log(nameInput)
+        document.getElementsByName(val)[0].value = ""
+    }
+
         return (
             <div>
                 <input 
@@ -27,6 +33,7 @@ function Practical(props) {
                     name="companyName" 
                     defaultValue={state.companyName} 
                     onChange={(event) => props.onCompanyNameChange(event.target.value)} 
+                    onBlur={(event) => clearInput('companyName')}
                     type="text">
                 </input>
                 <input 
@@ -34,6 +41,7 @@ function Practical(props) {
                     name="titleWork" 
                     defaultValue={state.titleWork} 
                     onChange={(event) => props.onTitleWorkChange(event.target.value)} 
+                    onBlur={(event) => clearInput('titleWork')}
                     type="text">
                 </input>
                 <input 
@@ -41,6 +49,7 @@ function Practical(props) {
                     name="tasks" 
                     defaultValue={state.tasks} 
                     onChange={(event) => props.onTasksChange(event.target.value)}  
+                    onBlur={(event) => clearInput('tasks')}
                     type="text">
                 </input>
                 <input 
@@ -48,6 +57,7 @@ function Practical(props) {
                     name="dateFrom" 
                     defaultValue={state.dateFrom} 
                     onChange={(event) => props.onDateFromChange(event.target.value)} 
+                    onBlur={(event) => clearInput('dateFrom')}
                     type="date">
                 </input>
                 <input 
@@ -55,6 +65,7 @@ function Practical(props) {
                     name="dateTo" 
                     defaultValue={state.dateTo} 
                     onChange={(event) => props.onDateToChange(event.target.value)}
+                    onBlur={(event) => clearInput('dateTo')}
                     type="date">
                 </input>
                 <button type="submit" onClick={onButtonClick}> Click me to edit</button>
