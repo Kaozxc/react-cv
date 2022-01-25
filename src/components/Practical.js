@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-
 function Practical(props) {
-  
     // eslint-disable-next-line no-unused-vars
     const [state,setState] = useState({
         companyName: '',
@@ -11,6 +9,16 @@ function Practical(props) {
         dateFrom: '',
         dateTo: '',
     });
+
+    const onButtonClick = (e) => {
+        setState({
+            companyName: localStorage.getItem('companyName'),
+            titleWork: localStorage.getItem('titleWork'),
+            tasks: localStorage.getItem('tasks'),
+            dateFrom: localStorage.getItem('dateFrom'),
+            dateTo: localStorage.getItem('dateTo'),
+        })
+    }
 
         return (
             <div>
@@ -40,15 +48,16 @@ function Practical(props) {
                     name="dateFrom" 
                     defaultValue={state.dateFrom} 
                     onChange={(event) => props.onDateFromChange(event.target.value)} 
-                    type="text">
+                    type="date">
                 </input>
                 <input 
                     placeholder="dateTo" 
                     name="dateTo" 
                     defaultValue={state.dateTo} 
                     onChange={(event) => props.onDateToChange(event.target.value)}
-                    type="text">
+                    type="date">
                 </input>
+                <button type="submit" onClick={onButtonClick}> Click me to edit</button>
             </div>
         )
 }

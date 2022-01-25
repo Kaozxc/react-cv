@@ -8,6 +8,13 @@ function Educational(props) {
         titleStudy: '',
         dateStudy: '',
     })
+    const onButtonClick = (e) => {
+        setState({
+            schoolName: localStorage.getItem('schoolName'),
+            titleStudy: localStorage.getItem('titleStudy'),
+            dateStudy: localStorage.getItem('dateStudy'),
+        })
+    }
     
         return (
             <div>
@@ -32,6 +39,7 @@ function Educational(props) {
                     onChange={(event) => props.onDateStudyChange(event.target.value)} 
                     type="date">
                 </input>
+                <button type="submit" onClick={onButtonClick}> Click me to edit</button>
             </div>
         )
 }

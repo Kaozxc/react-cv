@@ -7,9 +7,17 @@ function Main(props) {
             name: '',
             email: '',
             phone: '',
+            
         });
 
-    
+        const onButtonClick = (e) => {
+            setState({
+                name: localStorage.getItem('name'),
+                email: localStorage.getItem('email'),
+                phone: localStorage.getItem('phone'),
+            })
+        }
+
         return (
             <div>
                 <input 
@@ -33,6 +41,7 @@ function Main(props) {
                     onChange={(event) => props.onPhoneChange(event.target.value)}  
                     type="text">
                 </input>
+                <button type="submit" onClick={onButtonClick}> Click me to edit</button>
             </div>
         )
 }

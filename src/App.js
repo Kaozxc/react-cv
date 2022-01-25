@@ -9,51 +9,96 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      phone: '',
-      schoolName: '',
-      titleStudy: '',
-      dateStudy: '',
-      companyName: '',
-      titleWork: '',
-      tasks: '',
-      dateFrom: '',
-      dateTo: '',
+      name: localStorage.getItem('name'),
+      email: localStorage.getItem('email'),
+      phone: localStorage.getItem('phone'),
+      schoolName: localStorage.getItem('schoolName'),
+      titleStudy: localStorage.getItem('titleStudy'),
+      dateStudy: localStorage.getItem('dateStudy'),
+      companyName: localStorage.getItem('companyName'),
+      titleWork: localStorage.getItem('titleWork'),
+      tasks: localStorage.getItem('tasks'),
+      dateFrom: localStorage.getItem('dateFrom'),
+      dateTo: localStorage.getItem('dateTo'),
     }
   }
   render() {
+    const { state } = this;
     return (
       <div className="App">
        <Main 
-         onNameChange={(value) => this.setState({ 'name': value})}  
-         onEmailChange={(value) => this.setState({ 'email': value})} 
-         onPhoneChange={(value) => this.setState({ 'phone': value})} 
+         onNameChange={(value) => {
+          localStorage.setItem('name', value);
+          this.setState({ 'name': value}); 
+          return;
+         }}
+         onEmailChange={(value) => {
+          localStorage.setItem('email', value);
+          this.setState({ 'email': value}); 
+          return;
+         }}
+         onPhoneChange={(value) => {
+          localStorage.setItem('phone', value);
+          this.setState({ 'phone': value}); 
+          return;
+         }}
     />
        <Educational
-         onSchoolNameChange={(value) => this.setState({ 'schoolName': value})}  
-         onTitleStudyChange={(value) => this.setState({ 'titleStudy': value})} 
-         onDateStudyChange={(value) => this.setState({ 'dateStudy': value})} 
+         onSchoolNameChange={(value) => {
+          localStorage.setItem('schoolName', value);
+          this.setState({ 'schoolName': value}); 
+          return;
+         }}
+         onTitleStudyChange={(value) => {
+          localStorage.setItem('titleStudy', value);
+          this.setState({ 'titleStudy': value}); 
+          return;
+         }}
+         onDateStudyChange={(value) => {
+          localStorage.setItem('dateStudy', value);
+          this.setState({ 'dateStudy': value}); 
+          return;
+         }}
        />
        <Practical
-         onCompanyNameChange={(value) => this.setState({ 'companyName': value})}  
-         onTitleWorkChange={(value) => this.setState({ 'titleWork': value})} 
-         onTasksChange={(value) => this.setState({ 'tasks': value})} 
-         onDateFromChange={(value) => this.setState({ 'dateFrom': value})} 
-         onDateToChange={(value) => this.setState({ 'dateTo': value})} 
+         onCompanyNameChange={(value) => {
+          localStorage.setItem('companyName', value);
+          this.setState({ 'companyName': value}); 
+          return;
+         }}
+         onTitleWorkChange={(value) => {
+          localStorage.setItem('titleWork', value);
+          this.setState({ 'titleWork': value}); 
+          return;
+         }}
+         onTasksChange={(value) => {
+          localStorage.setItem('tasks', value);
+          this.setState({ 'tasks': value}); 
+          return;
+         }}
+         onDateFromChange={(value) => {
+          localStorage.setItem('dateFrom', value);
+          this.setState({ 'dateFrom': value}); 
+          return;
+         }}
+         onDateToChange={(value) => {
+          localStorage.setItem('dateTo', value);
+          this.setState({ 'dateTo': value}); 
+          return;
+         }}
        />
        <Output 
-        name={this.state.name}
-        email={this.state.email}
-        phone={this.state.phone} 
-        schoolName={this.state.schoolName} 
-        titleStudy={this.state.titleStudy} 
-        dateStudy={this.state.dateStudy} 
-        companyName={this.state.companyName} 
-        titleWork={this.state.titleWork} 
-        tasks={this.state.tasks} 
-        dateFrom={this.state.dateFrom} 
-        dateTo={this.state.dateTo} 
+        name={state.name}
+        email={state.email}
+        phone={state.phone} 
+        schoolName={state.schoolName} 
+        titleStudy={state.titleStudy} 
+        dateStudy={state.dateStudy} 
+        companyName={state.companyName} 
+        titleWork={state.titleWork} 
+        tasks={state.tasks} 
+        dateFrom={state.dateFrom} 
+        dateTo={state.dateTo} 
        />
       </div>
     );
