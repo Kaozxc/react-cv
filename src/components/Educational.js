@@ -8,6 +8,7 @@ function Educational(props) {
         titleStudy: '',
         dateStudy: '',
     })
+    
     const onButtonClick = (e) => {
         setState({
             schoolName: localStorage.getItem('schoolName'),
