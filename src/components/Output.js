@@ -16,7 +16,7 @@ function Output(props) {
             dateTo: '',
         });
 
-        const onButtonClick = (e) => {
+        const onButtonClick = () => {
             setState({
                 name: localStorage.setItem('name', 'John'),
                 email: localStorage.setItem('email', 'Email@gmail.com'),
@@ -37,28 +37,32 @@ function Output(props) {
             window.localStorage.clear();
             window.location.reload(true);
         }
+        // Not sure if that doesn't overcomplicated code
+        function ls(val) {
+            return localStorage.getItem(val);
+        }
 
         return (
             <div>
                 <label className='header'>Personal Information:</label>
                 <div className='main'>
-                    <label> Name: {props.name}</label><br/>
-                    <label> Email: {props.email}</label><br/>
-                    <label> Phone: {props.phone}</label><br/>
+                    <label> Name: {ls('name')}</label><br/>
+                    <label> Email: {localStorage.getItem('email')}</label><br/>
+                    <label> Phone: {localStorage.getItem('phone')}</label><br/>
                 </div><br/>
                 <label className='header'>Educational Information:</label>
                 <div className='educational'>
-                    <label> School: {props.schoolName}</label><br/>
-                    <label> School Title: {props.titleStudy}</label><br/>
-                    <label> Date Study: {props.dateStudy}</label><br/>
+                    <label> School: {localStorage.getItem('schoolName')}</label><br/>
+                    <label> School Title: {localStorage.getItem('titleStudy')}</label><br/>
+                    <label> Date Study: {localStorage.getItem('dateStudy')}</label><br/>
                 </div><br/>
                 <label className='header'>Practical Experience:</label>
                 <div className='practical'>
-                    <label> Company Name: {props.companyName}</label><br/>
-                    <label> Title Work: {props.titleWork}</label><br/>
-                    <label> Tasks: {props.tasks}</label><br/>
-                    <label> Date when started: {props.dateFrom}</label><br/>
-                    <label> Worked till: {props.dateTo}</label><br/>
+                    <label> Company Name: {localStorage.getItem('companyName')}</label><br/>
+                    <label> Title Work: {localStorage.getItem('titleWork')}</label><br/>
+                    <label> Tasks: {localStorage.getItem('tasks')}</label><br/>
+                    <label> Date when started: {localStorage.getItem('dateFrom')}</label><br/>
+                    <label> Worked till: {localStorage.getItem('dateTo')}</label><br/>
                 </div>
                 <button type="button" onClick={onButtonClear}> Click me to clear whole page</button>
                 <button type="button" onClick={onButtonClick}>Click to get test values</button>
