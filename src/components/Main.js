@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 
 function Main(props) {
-        // eslint-disable-next-line no-unused-vars
-        const [state, setState] = useState({
-            name: '',
-            email: '',
-            phone: '',
-            
-        });
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
 
         const onButtonClick = (e) => {
-            setState({
-                name: localStorage.getItem('name'),
-                email: localStorage.getItem('email'),
-                phone: localStorage.getItem('phone'),
-            })
+            setName(localStorage.getItem('name'))
+            setEmail(localStorage.getItem('email'))
+            setPhone(localStorage.getItem('phone'))
         }
 
-        const clearInput = (val) => {
-            let nameInput = document.getElementsByName(val)[0].value;
-            console.log(nameInput)
-            document.getElementsByName(val)[0].value = ""
+        const clearInput = () => {
+           setName('');
+           setEmail('');
+           setPhone('');
         }
 
         return (
@@ -29,25 +24,25 @@ function Main(props) {
                     placeholder="name" 
                     name="name"
                     className='nameInput'
-                    defaultValue={state.name} 
+                    defaultValue={name} 
                     onChange={(event) => props.onNameChange(event.target.value)}
-                    onBlur={() => clearInput('name')}
+                    onBlur={() => clearInput()}
                     type="text">
                 </input>
                 <input 
                     placeholder="email" 
                     name="email" 
-                    defaultValue={state.email} 
+                    defaultValue={email} 
                     onChange={(event) => props.onEmailChange(event.target.value)} 
-                    onBlur={() => clearInput('email')}
+                    onBlur={() => clearInput()}
                     type="email">
                 </input>
                 <input 
                     placeholder="phone" 
                     name="phone" 
-                    defaultValue={state.phone} 
+                    defaultValue={phone} 
                     onChange={(event) => props.onPhoneChange(event.target.value)}  
-                    onBlur={(event) => clearInput('phone')}
+                    onBlur={() => clearInput()}
                     type="text">
                 </input>
                 <button type="submit" onClick={onButtonClick}> Click me to edit</button>

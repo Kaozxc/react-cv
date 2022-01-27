@@ -2,19 +2,15 @@ import React, { useState } from 'react';
 
 
 function Educational(props) {
-    // eslint-disable-next-line no-unused-vars
-    const [state, setState] = useState({
-        schoolName: '',
-        titleStudy: '',
-        dateStudy: '',
-    })
+
+    const [schoolName, setSchoolName] = useState('');
+    const [titleStudy, setTitleStudy] = useState('');
+    const [dateStudy, setDateStudy] = useState('');
 
     const onButtonClick = (e) => {
-        setState({
-            schoolName: localStorage.getItem('schoolName'),
-            titleStudy: localStorage.getItem('titleStudy'),
-            dateStudy: localStorage.getItem('dateStudy'),
-        })
+        setSchoolName(localStorage.getItem('schoolName'))
+        setTitleStudy(localStorage.getItem('titleStudy'))
+        setDateStudy(localStorage.getItem('dateStudy'))
     }
 
     const clearInput = (val) => {
@@ -28,7 +24,7 @@ function Educational(props) {
                 <input 
                     placeholder="schoolName" 
                     name="schoolName" 
-                    defaultValue={state.schoolName}
+                    defaultValue={schoolName}
                     onChange={(event) => props.onSchoolNameChange(event.target.value)} 
                     onBlur={(event) => clearInput('schoolName')}
                     type="text">
@@ -36,7 +32,7 @@ function Educational(props) {
                 <input 
                     placeholder="titleStudy" 
                     name="titleStudy" 
-                    defaultValue={state.titleStudy} 
+                    defaultValue={titleStudy} 
                     onChange={(event) => props.onTitleStudyChange(event.target.value)} 
                     onBlur={(event) => clearInput('titleStudy')}
                     type="text">
@@ -44,7 +40,7 @@ function Educational(props) {
                 <input 
                     placeholder="dateStudy" 
                     name="dateStudy" 
-                    defaultValue={state.dateStudy} 
+                    defaultValue={dateStudy} 
                     onChange={(event) => props.onDateStudyChange(event.target.value)} 
                     onBlur={(event) => clearInput('dateStudy')}
                     type="date">

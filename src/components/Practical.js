@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
 
 function Practical(props) {
-    // eslint-disable-next-line no-unused-vars
-    const [state,setState] = useState({
-        companyName: '',
-        titleWork: '',
-        tasks: '',
-        dateFrom: '',
-        dateTo: '',
-    });
+
+    const [companyName, setCompanyName] = useState('');
+    const [titleWork, setTitleWork] = useState('');
+    const [tasks, setTasks] = useState('');
+    const [dateFrom, setDateFrom] = useState('');
+    const [dateTo, setDateTo] = useState('');
 
     const onButtonClick = (e) => {
-        setState({
-            companyName: localStorage.getItem('companyName'),
-            titleWork: localStorage.getItem('titleWork'),
-            tasks: localStorage.getItem('tasks'),
-            dateFrom: localStorage.getItem('dateFrom'),
-            dateTo: localStorage.getItem('dateTo'),
-        })
+            setCompanyName(localStorage.getItem('companyName'))
+            setTitleWork(localStorage.getItem('titleWork'))
+            setTasks(localStorage.getItem('tasks'))
+            setDateFrom(localStorage.getItem('dateFrom'))
+            setDateTo(localStorage.getItem('dateTo'))
     }
 
     const clearInput = (val) => {
@@ -31,7 +27,7 @@ function Practical(props) {
                 <input 
                     placeholder="companyName" 
                     name="companyName" 
-                    defaultValue={state.companyName} 
+                    defaultValue={companyName} 
                     onChange={(event) => props.onCompanyNameChange(event.target.value)} 
                     onBlur={(event) => clearInput('companyName')}
                     type="text">
@@ -39,7 +35,7 @@ function Practical(props) {
                 <input 
                     placeholder="titleWork" 
                     name="titleWork" 
-                    defaultValue={state.titleWork} 
+                    defaultValue={titleWork} 
                     onChange={(event) => props.onTitleWorkChange(event.target.value)} 
                     onBlur={(event) => clearInput('titleWork')}
                     type="text">
@@ -47,7 +43,7 @@ function Practical(props) {
                 <input 
                     placeholder="tasks" 
                     name="tasks" 
-                    defaultValue={state.tasks} 
+                    defaultValue={tasks} 
                     onChange={(event) => props.onTasksChange(event.target.value)}  
                     onBlur={(event) => clearInput('tasks')}
                     type="text">
@@ -55,7 +51,7 @@ function Practical(props) {
                 <input 
                     placeholder="dateFrom" 
                     name="dateFrom" 
-                    defaultValue={state.dateFrom} 
+                    defaultValue={dateFrom} 
                     onChange={(event) => props.onDateFromChange(event.target.value)} 
                     onBlur={(event) => clearInput('dateFrom')}
                     type="date">
@@ -63,7 +59,7 @@ function Practical(props) {
                 <input 
                     placeholder="dateTo" 
                     name="dateTo" 
-                    defaultValue={state.dateTo} 
+                    defaultValue={dateTo} 
                     onChange={(event) => props.onDateToChange(event.target.value)}
                     onBlur={(event) => clearInput('dateTo')}
                     type="date">

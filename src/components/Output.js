@@ -2,34 +2,32 @@ import React, { useState } from 'react';
 import './style.css';
 
 function Output(props) {
-        const [state, setState] = useState({
-            name: '',
-            email: '',
-            phone: '',
-            schoolName: '',
-            titleStudy: '',
-            dateStudy: '',
-            companyName: '',
-            titleWork: '',
-            tasks: '',
-            dateFrom: '',
-            dateTo: '',
-        });
+    /* eslint-disable no-unused-vars */
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [schoolName, setSchoolName] = useState('');
+    const [titleStudy, setTitleStudy] = useState('');
+    const [dateStudy, setDateStudy] = useState('');
+    const [companyName, setCompanyName] = useState('');
+    const [titleWork, setTitleWork] = useState('');
+    const [tasks, setTasks] = useState('');
+    const [dateFrom, setDateFrom] = useState('');
+    const [dateTo, setDateTo] = useState('');
 
         const onButtonClick = () => {
-            setState({
-                name: localStorage.setItem('name', 'John'),
-                email: localStorage.setItem('email', 'Email@gmail.com'),
-                phone: localStorage.setItem('phone', '444-555-666'),
-                schoolName: localStorage.setItem('schoolName', 'School Name'),
-                titleStudy: localStorage.setItem('titleStudy', 'Title Study'),
-                dateStudy: localStorage.setItem('dateStudy', '2022-01-19'),
-                companyName: localStorage.setItem('companyName', 'Company Name'),
-                titleWork: localStorage.setItem('titleWork', 'Title Work'),
-                tasks: localStorage.setItem('tasks', 'List of Tasks'),
-                dateFrom: localStorage.setItem('dateFrom', '2022-01-25'),
-                dateTo: localStorage.setItem('dateTo', '2022-01-25'),
-            })
+            setName(localStorage.setItem('name', 'John'))
+            setEmail(localStorage.setItem('email', 'Email@gmail.com'))
+            setPhone(localStorage.setItem('phone', '444-555-666'))
+            setSchoolName(localStorage.setItem('schoolName', 'School Name'))
+            setTitleStudy(localStorage.setItem('titleStudy', 'Title Study'))
+            setDateStudy(localStorage.setItem('dateStudy', '2022-01-19'))
+            setCompanyName(localStorage.setItem('companyName', 'Company Name'))
+            setTitleWork(localStorage.setItem('titleWork', 'Title Work'))
+            setTasks(localStorage.setItem('tasks', 'List of Tasks'))
+            setDateFrom(localStorage.setItem('dateFrom', '2022-01-25'))
+            setDateTo(localStorage.setItem('dateTo', '2022-01-25'))
+           
             window.location.reload(true);
         }
 
@@ -37,16 +35,12 @@ function Output(props) {
             window.localStorage.clear();
             window.location.reload(true);
         }
-        // Not sure if that doesn't overcomplicated code
-        function ls(val) {
-            return localStorage.getItem(val);
-        }
 
         return (
             <div>
                 <label className='header'>Personal Information:</label>
                 <div className='main'>
-                    <label> Name: {ls('name')}</label><br/>
+                    <label> Name: {localStorage.getItem('name')}</label><br/>
                     <label> Email: {localStorage.getItem('email')}</label><br/>
                     <label> Phone: {localStorage.getItem('phone')}</label><br/>
                 </div><br/>

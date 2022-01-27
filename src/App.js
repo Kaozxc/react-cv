@@ -6,95 +6,96 @@ import Practical from './components/Practical';
 import Output from './components/Output';
 
 const App = (props) => {
-  const [state, setState] = useState({
-      name: localStorage.getItem('name'),
-      email: localStorage.getItem('email'),
-      phone: localStorage.getItem('phone'),
-      schoolName: localStorage.getItem('schoolName'),
-      titleStudy: localStorage.getItem('titleStudy'),
-      dateStudy: localStorage.getItem('dateStudy'),
-      companyName: localStorage.getItem('companyName'),
-      titleWork: localStorage.getItem('titleWork'),
-      tasks: localStorage.getItem('tasks'),
-      dateFrom: localStorage.getItem('dateFrom'),
-      dateTo: localStorage.getItem('dateTo'),
-    })
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [schoolName, setSchoolName] = useState('');
+  const [titleStudy, setTitleStudy] = useState('');
+  const [dateStudy, setDateStudy] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [titleWork, setTitleWork] = useState('');
+  const [tasks, setTasks] = useState('');
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
+
+  //setName(localStorage.getItem('name'))
 
     return (
       <div className="App">
        <Main 
          onNameChange={(value) => {
           localStorage.setItem('name', value);
-          setState({ 'name': value}); 
+          setName(value)
           return;
          }}
          onEmailChange={(value) => {
           localStorage.setItem('email', value);
-          setState({ 'email': value}); 
+          setEmail(value)
           return;
          }}
          onPhoneChange={(value) => {
           localStorage.setItem('phone', value);
-          setState({ 'phone': value}); 
+          setPhone(value)
           return;
          }}
     />
        <Educational
          onSchoolNameChange={(value) => {
           localStorage.setItem('schoolName', value);
-          setState({ 'schoolName': value}); 
+          setSchoolName(value)
           return;
          }}
          onTitleStudyChange={(value) => {
           localStorage.setItem('titleStudy', value);
-          setState({ 'titleStudy': value}); 
+          setTitleStudy(value)
           return;
          }}
          onDateStudyChange={(value) => {
           localStorage.setItem('dateStudy', value);
-          setState({ 'dateStudy': value}); 
+          setDateStudy(value)
           return;
          }}
        />
        <Practical
          onCompanyNameChange={(value) => {
           localStorage.setItem('companyName', value);
-          setState({ 'companyName': value}); 
+          setCompanyName(value)
           return;
          }}
          onTitleWorkChange={(value) => {
           localStorage.setItem('titleWork', value);
-          setState({ 'titleWork': value}); 
+          setTitleWork(value)
           return;
          }}
          onTasksChange={(value) => {
           localStorage.setItem('tasks', value);
-          setState({ 'tasks': value}); 
+          setTasks(value)
           return;
          }}
          onDateFromChange={(value) => {
           localStorage.setItem('dateFrom', value);
-          setState({ 'dateFrom': value}); 
+          setDateFrom(value)
           return;
          }}
          onDateToChange={(value) => {
           localStorage.setItem('dateTo', value);
-          setState({ 'dateTo': value}); 
+          setDateTo(value)
           return;
          }}
        />
        <Output 
-        name={state.name}
-        email={state.email}
-        phone={state.phone} 
-        schoolName={state.schoolName} 
-        titleStudy={state.titleStudy} 
-        dateStudy={state.dateStudy} 
-        companyName={state.companyName} 
-        titleWork={state.titleWork} 
-        tasks={state.tasks} 
-        dateFrom={state.dateFrom} 
-        dateTo={state.dateTo} 
+        name={name}
+        email={email}
+        phone={phone} 
+        schoolName={schoolName} 
+        titleStudy={titleStudy} 
+        dateStudy={dateStudy} 
+        companyName={companyName} 
+        titleWork={titleWork} 
+        tasks={tasks} 
+        dateFrom={dateFrom} 
+        dateTo={dateTo} 
        />
       </div>
     );
