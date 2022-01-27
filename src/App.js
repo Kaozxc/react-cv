@@ -1,7 +1,7 @@
 import { Component, useState } from 'react';
 import './App.css';
 import Educational from './components/Educational';
-import Main from './components/Main';
+import Personal from './components/Personal';
 import Practical from './components/Practical';
 import Output from './components/Output';
 
@@ -19,71 +19,58 @@ const App = (props) => {
   const [dateFrom, setDateFrom] = useState('');
   const [dateTo, setDateTo] = useState('');
 
-  //setName(localStorage.getItem('name'))
-
     return (
       <div className="App">
-       <Main 
+       <Personal 
          onNameChange={(value) => {
           localStorage.setItem('name', value);
           setName(value)
-          return;
          }}
-         onEmailChange={(value) => {
-          localStorage.setItem('email', value);
-          setEmail(value)
-          return;
-         }}
-         onPhoneChange={(value) => {
-          localStorage.setItem('phone', value);
-          setPhone(value)
-          return;
-         }}
-    />
+        //  onEmailChange={(value) => {
+        //   localStorage.setItem('email', value);
+        //   setEmail(value)
+        //  }}
+        //  onPhoneChange={(value) => {
+        //   localStorage.setItem('phone', value);
+        //   setPhone(value)
+        //  }}
+    /> 
        <Educational
          onSchoolNameChange={(value) => {
           localStorage.setItem('schoolName', value);
           setSchoolName(value)
-          return;
          }}
-         onTitleStudyChange={(value) => {
-          localStorage.setItem('titleStudy', value);
-          setTitleStudy(value)
-          return;
-         }}
-         onDateStudyChange={(value) => {
-          localStorage.setItem('dateStudy', value);
-          setDateStudy(value)
-          return;
-         }}
+        //  onTitleStudyChange={(value) => {
+        //   localStorage.setItem('titleStudy', value);
+        //   setTitleStudy(value)
+        //  }}
+        //  onDateStudyChange={(value) => {
+        //   localStorage.setItem('dateStudy', value);
+        //   setDateStudy(value)
+        //  }}
        />
-       <Practical
+       {/* <Practical
          onCompanyNameChange={(value) => {
           localStorage.setItem('companyName', value);
           setCompanyName(value)
-          return;
          }}
          onTitleWorkChange={(value) => {
           localStorage.setItem('titleWork', value);
           setTitleWork(value)
-          return;
          }}
          onTasksChange={(value) => {
           localStorage.setItem('tasks', value);
           setTasks(value)
-          return;
          }}
          onDateFromChange={(value) => {
           localStorage.setItem('dateFrom', value);
           setDateFrom(value)
-          return;
          }}
          onDateToChange={(value) => {
           localStorage.setItem('dateTo', value);
           setDateTo(value)
-          return;
          }}
-       />
+       /> */}
        <Output 
         name={name}
         email={email}

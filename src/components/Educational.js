@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TextField from './TextField';
 
 
 function Educational(props) {
@@ -14,37 +15,50 @@ function Educational(props) {
     }
 
     const clearInput = (val) => {
-        let nameInput = document.getElementsByName(val)[0].value;
-        console.log(nameInput)
-        document.getElementsByName(val)[0].value = ""
+        if(val === 1) {
+            setSchoolName('')
+        } else if (val === 2) {
+            setTitleStudy('');
+        } else if (val === 3) {
+            setDateStudy('');
+        } else {
+            console.log('error');
+        }
     }
     
         return (
             <div>
-                <input 
+                <TextField 
                     placeholder="schoolName" 
                     name="schoolName" 
-                    defaultValue={schoolName}
-                    onChange={(event) => props.onSchoolNameChange(event.target.value)} 
-                    onBlur={(event) => clearInput('schoolName')}
-                    type="text">
-                 </input>
-                <input 
+                    value={schoolName}
+                    onChange={(event) => {
+                        setSchoolName(event.target.value)
+                        props.onSchoolNameChange(event.target.value)
+                        }}
+                    onBlur={() => clearInput(1)}
+                    type="text"
+                 />
+                {/* <TextField 
                     placeholder="titleStudy" 
                     name="titleStudy" 
-                    defaultValue={titleStudy} 
-                    onChange={(event) => props.onTitleStudyChange(event.target.value)} 
-                    onBlur={(event) => clearInput('titleStudy')}
-                    type="text">
-                </input>
-                <input 
+                    value={titleStudy} 
+                    onChange={(event) => {
+                        setTitleStudy(localStorage.setItem('titleStudy', event.target.value))
+                    }}
+                    onBlur={() => clearInput(2)}
+                    type="text"
+                />
+                <TextField 
                     placeholder="dateStudy" 
                     name="dateStudy" 
-                    defaultValue={dateStudy} 
-                    onChange={(event) => props.onDateStudyChange(event.target.value)} 
-                    onBlur={(event) => clearInput('dateStudy')}
-                    type="date">
-                </input>
+                    value={dateStudy} 
+                    onChange={(event) => {
+                        setDateStudy(localStorage.setItem('dateStudy', event.target.value));
+                    }}
+                    onBlur={() => clearInput(3)}
+                    type="date"
+                /> */}
                 <button type="submit" onClick={onButtonClick}> Click me to edit</button>
             </div>
         )

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TextField from './TextField';
 
 function Practical(props) {
 
@@ -17,53 +18,73 @@ function Practical(props) {
     }
 
     const clearInput = (val) => {
-        let nameInput = document.getElementsByName(val)[0].value;
-        console.log(nameInput)
-        document.getElementsByName(val)[0].value = ""
+        if(val === 1) {
+            setCompanyName('')
+        } else if (val === 2) {
+            setTitleWork('');
+        } else if (val === 3) {
+            setTasks('');
+        } else if (val === 4) {
+            setDateFrom('')
+        }  else if (val === 5) {
+            setDateTo('')
+        }else {
+            console.log('error');
+        }
     }
 
         return (
             <div>
-                <input 
+                {/* <TextField 
                     placeholder="companyName" 
                     name="companyName" 
-                    defaultValue={companyName} 
-                    onChange={(event) => props.onCompanyNameChange(event.target.value)} 
-                    onBlur={(event) => clearInput('companyName')}
-                    type="text">
-                </input>
-                <input 
+                    value={companyName} 
+                    onChange={(event) => {
+                        setCompanyName(localStorage.setItem('companyName', event.target.value));
+                    }}
+                    onBlur={() => clearInput(1)}
+                    type="text"
+                />
+                <TextField 
                     placeholder="titleWork" 
                     name="titleWork" 
-                    defaultValue={titleWork} 
-                    onChange={(event) => props.onTitleWorkChange(event.target.value)} 
-                    onBlur={(event) => clearInput('titleWork')}
+                    value={titleWork} 
+                    onChange={(event) => {
+                        setTitleWork(localStorage.setItem('titleWork', event.target.value));
+                    }}
+                    onBlur={() => clearInput(2)}
                     type="text">
-                </input>
-                <input 
+                </TextField>
+                <TextField 
                     placeholder="tasks" 
                     name="tasks" 
-                    defaultValue={tasks} 
-                    onChange={(event) => props.onTasksChange(event.target.value)}  
-                    onBlur={(event) => clearInput('tasks')}
-                    type="text">
-                </input>
-                <input 
+                    value={tasks} 
+                    onChange={(event) => {
+                        setTasks(localStorage.setItem('tasks', event.target.value));
+                    }}
+                    onBlur={() => clearInput(3)}
+                    type="text"
+                />
+                <TextField 
                     placeholder="dateFrom" 
                     name="dateFrom" 
-                    defaultValue={dateFrom} 
-                    onChange={(event) => props.onDateFromChange(event.target.value)} 
-                    onBlur={(event) => clearInput('dateFrom')}
-                    type="date">
-                </input>
-                <input 
+                    value={dateFrom} 
+                    onChange={(event) => {
+                        setDateFrom(localStorage.setItem('dateFrom', event.target.value));
+                    }}
+                    onBlur={() => clearInput(4)}
+                    type="date"
+                />
+                <TextField 
                     placeholder="dateTo" 
                     name="dateTo" 
-                    defaultValue={dateTo} 
-                    onChange={(event) => props.onDateToChange(event.target.value)}
-                    onBlur={(event) => clearInput('dateTo')}
-                    type="date">
-                </input>
+                    value={dateTo} 
+                    onChange={(event) => {
+                        setDateTo(localStorage.setItem('dateTo', event.target.value));
+                    }}
+                    onBlur={() => clearInput(5)}
+                    type="date"
+                /> */}
                 <button type="submit" onClick={onButtonClick}> Click me to edit</button>
             </div>
         )
