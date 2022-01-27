@@ -1,4 +1,4 @@
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Educational from './components/Educational';
 import Personal from './components/Personal';
@@ -26,30 +26,30 @@ const App = (props) => {
           localStorage.setItem('name', value);
           setName(value)
          }}
-        //  onEmailChange={(value) => {
-        //   localStorage.setItem('email', value);
-        //   setEmail(value)
-        //  }}
-        //  onPhoneChange={(value) => {
-        //   localStorage.setItem('phone', value);
-        //   setPhone(value)
-        //  }}
+         onEmailChange={(value) => {
+          localStorage.setItem('email', value);
+          setEmail(value)
+         }}
+         onPhoneChange={(value) => {
+          localStorage.setItem('phone', value);
+          setPhone(value)
+         }}
     /> 
        <Educational
          onSchoolNameChange={(value) => {
           localStorage.setItem('schoolName', value);
           setSchoolName(value)
          }}
-        //  onTitleStudyChange={(value) => {
-        //   localStorage.setItem('titleStudy', value);
-        //   setTitleStudy(value)
-        //  }}
-        //  onDateStudyChange={(value) => {
-        //   localStorage.setItem('dateStudy', value);
-        //   setDateStudy(value)
-        //  }}
+         onTitleStudyChange={(value) => {
+          localStorage.setItem('titleStudy', value);
+          setTitleStudy(value)
+         }}
+         onDateStudyChange={(value) => {
+          localStorage.setItem('dateStudy', value);
+          setDateStudy(value)
+         }}
        />
-       {/* <Practical
+        <Practical
          onCompanyNameChange={(value) => {
           localStorage.setItem('companyName', value);
           setCompanyName(value)
@@ -70,19 +70,19 @@ const App = (props) => {
           localStorage.setItem('dateTo', value);
           setDateTo(value)
          }}
-       /> */}
+       /> 
        <Output 
-        name={name}
-        email={email}
-        phone={phone} 
-        schoolName={schoolName} 
-        titleStudy={titleStudy} 
-        dateStudy={dateStudy} 
-        companyName={companyName} 
-        titleWork={titleWork} 
-        tasks={tasks} 
-        dateFrom={dateFrom} 
-        dateTo={dateTo} 
+          name={name}
+          email={email}
+          phone={phone} 
+          schoolName={schoolName} 
+          titleStudy={titleStudy} 
+          dateStudy={dateStudy} 
+          companyName={companyName} 
+          titleWork={titleWork} 
+          tasks={tasks} 
+          dateFrom={dateFrom} 
+          dateTo={dateTo} 
        />
       </div>
     );

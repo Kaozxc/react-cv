@@ -39,14 +39,12 @@ function Output(props) {
                 <label className='header'>Personal Information:</label>
                 <div className='personal'>
                     <label> Name: {localStorage.getItem('name')}</label><br/>
-                    {console.log('LS getitem name:',localStorage.getItem('name'))}
                     <label> Email: {localStorage.getItem('email')}</label><br/>
                     <label> Phone: {localStorage.getItem('phone')}</label><br/>
                 </div><br/>
                 <label className='header'>Educational Information:</label>
                 <div className='educational'>
                     <label> School: {localStorage.getItem('schoolName')}</label><br/>
-                    {console.log('LS getitem schoolname:',localStorage.getItem('schoolName'))}
                     <label> School Title: {localStorage.getItem('titleStudy')}</label><br/>
                     <label> Date Study: {localStorage.getItem('dateStudy')}</label><br/>
                 </div><br/>

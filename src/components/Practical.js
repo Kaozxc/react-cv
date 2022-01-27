@@ -35,12 +35,13 @@ function Practical(props) {
 
         return (
             <div>
-                {/* <TextField 
+                 <TextField 
                     placeholder="companyName" 
                     name="companyName" 
                     value={companyName} 
                     onChange={(event) => {
-                        setCompanyName(localStorage.setItem('companyName', event.target.value));
+                        setCompanyName(event.target.value)
+                        props.onCompanyNameChange(event.target.value)
                     }}
                     onBlur={() => clearInput(1)}
                     type="text"
@@ -50,7 +51,8 @@ function Practical(props) {
                     name="titleWork" 
                     value={titleWork} 
                     onChange={(event) => {
-                        setTitleWork(localStorage.setItem('titleWork', event.target.value));
+                        setTitleWork(event.target.value)
+                        props.onTitleWorkChange(event.target.value)
                     }}
                     onBlur={() => clearInput(2)}
                     type="text">
@@ -60,7 +62,8 @@ function Practical(props) {
                     name="tasks" 
                     value={tasks} 
                     onChange={(event) => {
-                        setTasks(localStorage.setItem('tasks', event.target.value));
+                        setTasks(event.target.value)
+                        props.onTasksChange(event.target.value)
                     }}
                     onBlur={() => clearInput(3)}
                     type="text"
@@ -70,7 +73,8 @@ function Practical(props) {
                     name="dateFrom" 
                     value={dateFrom} 
                     onChange={(event) => {
-                        setDateFrom(localStorage.setItem('dateFrom', event.target.value));
+                        setDateFrom(event.target.value)
+                        props.onDateFromChange(event.target.value)
                     }}
                     onBlur={() => clearInput(4)}
                     type="date"
@@ -80,11 +84,12 @@ function Practical(props) {
                     name="dateTo" 
                     value={dateTo} 
                     onChange={(event) => {
-                        setDateTo(localStorage.setItem('dateTo', event.target.value));
+                        setDateTo(event.target.value)
+                        props.onDateToChange(event.target.value)
                     }}
                     onBlur={() => clearInput(5)}
                     type="date"
-                /> */}
+                /> 
                 <button type="submit" onClick={onButtonClick}> Click me to edit</button>
             </div>
         )

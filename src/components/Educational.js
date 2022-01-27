@@ -35,16 +35,17 @@ function Educational(props) {
                     onChange={(event) => {
                         setSchoolName(event.target.value)
                         props.onSchoolNameChange(event.target.value)
-                        }}
+                    }}
                     onBlur={() => clearInput(1)}
                     type="text"
                  />
-                {/* <TextField 
+                <TextField 
                     placeholder="titleStudy" 
                     name="titleStudy" 
                     value={titleStudy} 
                     onChange={(event) => {
-                        setTitleStudy(localStorage.setItem('titleStudy', event.target.value))
+                        setTitleStudy(event.target.value)
+                        props.onTitleStudyChange(event.target.value)
                     }}
                     onBlur={() => clearInput(2)}
                     type="text"
@@ -54,11 +55,12 @@ function Educational(props) {
                     name="dateStudy" 
                     value={dateStudy} 
                     onChange={(event) => {
-                        setDateStudy(localStorage.setItem('dateStudy', event.target.value));
+                        setDateStudy(event.target.value)
+                        props.onDateStudyChange(event.target.value)
                     }}
                     onBlur={() => clearInput(3)}
                     type="date"
-                /> */}
+                /> 
                 <button type="submit" onClick={onButtonClick}> Click me to edit</button>
             </div>
         )

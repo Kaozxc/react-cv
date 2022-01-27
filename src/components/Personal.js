@@ -39,12 +39,15 @@ function Personal(props) {
                     onBlur={() => clearInput(1)}
                     type="text"
                 />
-                 {/* <TextField 
+                 <TextField 
                     placeholder='email'
                     name="email"
                     className='emailInput'
                     value={email} 
-                    onChange={(event) => props.onEmailChange(event.target.value)}
+                     onChange={(event) => {
+                        setEmail(event.target.value)
+                        props.onEmailChange(event.target.value)
+                        }}
                     onBlur={() => clearInput(2)}
                     type="text"
                 />
@@ -53,10 +56,13 @@ function Personal(props) {
                     name="phone"
                     className='phoneInput'
                     value={phone} 
-                    onChange={(event) => props.onPhoneChange(event.target.value)}
+                     onChange={(event) => {
+                        setPhone(event.target.value)
+                        props.onPhoneChange(event.target.value)
+                        }}
                     onBlur={() => clearInput(3)}
                     type="text"
-                />  */}
+                /> 
                 <button type="submit" onClick={onButtonClick}> Click me to edit</button>
             </div>
         )
